@@ -165,6 +165,46 @@ def cardA(d):
 <div class="ln pen q" style="top:560px"><span class="no">셋</span><span class="fit">{E(d.get('집에서.질문3', ''))}</span></div>
 <div class="ln pen q fit" style="top:720px;color:#b8572f">→ {E(d.get('집에서.맺음', ''))}</div><img class="lg" src="assets/logo.png">{sig()}</div>'''
 
+# ---------- 판 5: 다변화 — 글마다 색 테마 하나 + 카드마다 배치 두 가지 중 하나 ----------
+import zlib
+def pick(code, key, n):
+    return zlib.crc32((code + ':' + key).encode()) % n
+
+def cardC2(d, photo):
+    tag = ' · '.join(x for x in (d.get('표지.칩2', ''), d.get('표지.칩1', '')) if x)
+    return f'''<div class="c C C2" id="k"><img class="bg" src="{photo}"><div class="vg2"></div>
+<div class="top"><div class="tag2">{E(tag)}</div><div class="t fit2" id="ttl">{E(bk(d))}</div><div class="s">{E(d.get('표지.한줄', ''))}</div></div>
+<img class="lg" src="assets/logo.png">{sig('w')}</div>'''
+
+def cardF2(d):
+    rows = [('글 · 그림', '책.글그림'), ('출판사', '책.출판사'), ('쪽수', '책.쪽수'), ('함께 읽는 학년', '책.학년'), ('주제어', '책.주제어'), ('기록', '책.기록')]
+    dl = ''.join(f'<div class="r"><span>{E(a)}</span><b>{E(d[b])}</b></div>' for a, b in rows if d.get(b))
+    return f'''<div class="c F2" id="k"><div class="strip"></div><div class="hd">책 한 장 정보 · {E(d.get('표지.칩2', ''))}</div>
+<div class="tt fit">{E(d.get('책.제목', bk(d)))}</div><div class="bar"></div><div class="rows">{dl}</div><img class="lg" src="assets/logo_navy.png">{sig()}</div>'''
+
+def cardH2(d):
+    return f'''<div class="c H H2" id="k"><div class="k">갈림길 · 너라면?</div><div class="t">{E(d.get('갈림길.질문', ''))}</div>
+<div class="cols"><div class="col c1"><b>가</b><span>{E(d.get('갈림길.가', ''))}</span></div><div class="col c2"><b>나</b><span>{E(d.get('갈림길.나', ''))}</span></div><div class="vs2">VS</div></div>
+<div class="ft">정답은 없어요. 고른 까닭을 말해 보면 됩니다</div><img class="lg" src="assets/logo_navy.png">{sig()}</div>'''
+
+def cardB3b(d):
+    band = d.get('한장틀.띠') or '이 이야기는 무슨 질문에 대한 답일까?'
+    return f'''<div class="c B B3b" id="k"><div class="k">휴머니티의 한 장 틀</div><div class="band">{E(band)}</div>
+<div class="big">{E(d.get('한장틀.큰질문', ''))}</div><div class="lines"><i></i><i></i></div>
+<div class="sm s1"><em>작은 질문</em>{E(d.get('한장틀.작은질문1', ''))}</div><div class="sm s2"><em>작은 질문</em>{E(d.get('한장틀.작은질문2', ''))}</div>
+<div class="wr"><em>틀릴 수 있는 경우</em>{E(d.get('한장틀.틀릴수있는경우', ''))}</div><img class="lg" src="assets/logo_navy.png">{sig()}</div>'''
+
+def cardG2(d):
+    q = lambda s: E(s.strip('“”"'))
+    return f'''<div class="c G G2" id="k"><div class="k">아이의 말로 보기</div><div class="t">{E(d.get('아이말.질문', ''))}</div>
+<div class="qs"><div class="qq"><i>“</i><small>그 학년다운 대답</small><p class="bb">{q(d.get('아이말.대답1', ''))}</p></div><div class="qq q2"><i>“</i><small>한 걸음 나아간 대답</small><p class="bb">{q(d.get('아이말.대답2', ''))}</p></div></div>
+<div class="ft">예로 들어 본 대답이에요</div><img class="lg" src="assets/logo_navy.png">{sig()}</div>'''
+
+def cardA2(d):
+    return f'''<div class="c A2" id="k"><div class="k">집에서 해 보기 · 오늘 저녁, 세 가지만</div>
+<div class="nt n1"><b>하나</b><span>{E(d.get('집에서.질문1', ''))}</span></div><div class="nt n2"><b>둘</b><span>{E(d.get('집에서.질문2', ''))}</span></div><div class="nt n3"><b>셋</b><span>{E(d.get('집에서.질문3', ''))}</span></div>
+<div class="end">{E(d.get('집에서.맺음', ''))}</div><img class="lg" src="assets/logo_brown.png">{sig()}</div>'''
+
 FIT = '''<script>document.fonts.ready.then(()=>{document.querySelectorAll('.fit,.fit2').forEach(e=>{let p=e.parentElement;let cs=getComputedStyle(e);let w=cs.display==='inline'?p.getBoundingClientRect().right-e.getBoundingClientRect().left:e.clientWidth;let fs=parseFloat(getComputedStyle(e).fontSize);while(e.scrollWidth>w+1&&fs>20){fs-=1;e.style.fontSize=fs+'px';}if(e.classList.contains('fit2')){const lh=()=>parseFloat(getComputedStyle(e).lineHeight);while(e.getBoundingClientRect().height>lh()*2+4&&fs>20){fs-=2;e.style.fontSize=fs+'px';}}});
 document.querySelectorAll('.bb').forEach(e=>{let fs=58;const L=e.textContent.length;if(L>45)fs=48;if(L>70)fs=42;if(L>100)fs=36;e.style.fontSize=fs+'px'});document.body.dataset.ok=1});</script>'''
 
@@ -204,20 +244,25 @@ def main():
     short = meta.get('글 종류', '').startswith('짧')
     sentence = meta.get('글 종류', '').startswith('문장')
     photo = None if sentence else get_photo(d.get('표지.사진', ''), folder)
-    cards = [('1_표지', cardS0(d) if sentence else cardC(d, photo) if photo else cardB1(d), bool(photo))]
+    V = lambda key: pick(code, key, 2) == 1 and '--plain' not in args
+    cover = cardS0(d) if sentence else (cardC2 if V('C') else cardC)(d, photo) if photo else cardB1(d)
+    cards = [('1_표지', cover, bool(photo))]
     if sentence:
         cards += [(f'{i + 1}_문장', cardS(d, f'문장{i}', i), False) for i in (1, 2, 3)]
     if sentence:
         pass
     elif not short:
-        two = cardE(d) if '교육관' in kind else cardD(d) if '쓰기' in kind else cardF(d)
+        two = cardE(d) if '교육관' in kind else cardD(d) if '쓰기' in kind else (cardF2 if V('F') else cardF)(d)
         cards.append(('2_' + ('근거' if '교육관' in kind else '원고지' if '쓰기' in kind else '책정보'), two, False))
     if not sentence:
-        cards.append(('6_갈림길', cardH(d), False))
-        cards.append(('3_한장틀', cardB3(d), False))
+        cards.append(('6_갈림길', (cardH2 if V('H') else cardH)(d), False))
+        cards.append(('3_한장틀', (cardB3b if V('B') else cardB3)(d), False))
         if not short:
-            cards.append(('4_아이의말', cardG(d), False))
-        cards.append(('5_집에서', cardA(d), False))
+            cards.append(('4_아이의말', (cardG2 if V('G') else cardG)(d), False))
+        cards.append(('5_집에서', (cardA2 if V('A') else cardA)(d), False))
+    theme = 0 if '--plain' in args else pick(code, 'theme', 5)
+    cards = [(n, h.replace('<div class="c ', f'<div class="c th{theme} ', 1), ph) for n, h, ph in cards]
+    report['theme'] = theme
     head = open(os.path.join(D, 'head.html'), encoding='utf-8').read()
     css = open(os.path.join(D, 'cards.css'), encoding='utf-8').read()
     from playwright.sync_api import sync_playwright

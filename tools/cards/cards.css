@@ -137,3 +137,81 @@
 .S0 .lg{top:auto;bottom:96px;right:auto;left:50%;margin-left:-35px}
 .S0 .sig{bottom:60px}
 .S .t{text-wrap:balance}
+/* ===== 판 5 다변화: 배치 변형 ===== */
+/* C2 표지: 제목을 위쪽에, 사진은 아래로 열어 둠 */
+.C2 .vg2{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,14,10,.72) 0%,rgba(18,14,10,.38) 38%,transparent 62%)}
+.C2 .top{position:absolute;left:84px;right:84px;top:96px}
+.C2 .tag2{display:inline-block;font-family:"Gowun Dodum";font-size:26px;letter-spacing:.12em;color:#fff;border-bottom:2px solid rgba(255,255,255,.8);padding-bottom:10px;margin-bottom:34px}
+.C2 .t{font-size:108px;line-height:1.12;max-width:900px}
+.C2 .s{margin-top:22px;font-size:40px;font-family:"Gowun Batang";font-weight:700;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.C2 .lg{top:auto;bottom:90px;right:60px;background:none;padding:0;width:96px}
+/* F2 책 정보: 큰 제목과 가는 줄의 명세표 */
+.F2{background:#fbf8f1;font-family:"Gowun Dodum";color:#24211d}
+.F2 .strip{position:absolute;left:0;top:0;bottom:0;width:34px;background:#1b3a6b}
+.F2 .hd{position:absolute;left:110px;top:96px;font-size:26px;letter-spacing:.14em;color:#8a7a62}
+.F2 .tt{position:absolute;left:110px;right:90px;top:150px;font-family:"Gowun Batang";font-weight:700;font-size:84px;line-height:1.2}
+.F2 .bar{position:absolute;left:110px;top:300px;width:120px;height:6px;background:#1b3a6b}
+.F2 .rows{position:absolute;left:110px;right:90px;top:360px}
+.F2 .r{display:flex;gap:30px;padding:20px 0;border-bottom:1px dashed #cfc5b2;font-size:32px;line-height:1.4}
+.F2 .r span{flex:none;width:230px;color:#8a7a62;font-size:28px;padding-top:3px}
+.F2 .lg{position:absolute;right:84px;top:80px;width:84px}
+/* H2 갈림길: 두 기둥이 나란히 */
+.H2 .cols{position:absolute;left:90px;right:90px;top:420px;height:430px;display:flex;gap:40px}
+.H2 .col{flex:1;border-radius:24px;padding:46px 40px;display:flex;flex-direction:column;gap:28px;background:#fff;box-shadow:0 6px 0 #e6dcc6}
+.H2 .col b{font-family:"Hahmlet";font-size:96px;line-height:1;color:#1b3a6b}
+.H2 .c2 b{color:#c0472b}
+.H2 .col span{font-family:"Nanum Pen Script";font-size:56px;line-height:1.2}
+.H2 .vs2{position:absolute;left:50%;top:50%;width:110px;height:110px;margin:-55px 0 0 -55px;border-radius:50%;background:#c0472b;color:#fff;font-family:"Hahmlet";font-weight:700;font-size:44px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 10px #f7f1e3}
+/* B3b 한 장 틀: 큰 질문에서 두 갈래로 내려가는 지도 */
+.B3b .k{top:90px}
+.B3b .band{position:absolute;left:110px;right:110px;top:140px;font-size:30px;color:#6d655b;font-family:"Gowun Dodum"}
+.B3b .big{position:absolute;left:110px;right:110px;top:220px;padding:44px 50px;border:3px solid #29241f;border-radius:18px;font-size:58px;font-weight:700;line-height:1.3;text-align:center;background:rgba(255,255,255,.55)}
+.B3b .lines i{position:absolute;top:470px;width:3px;height:70px;background:#29241f}
+.B3b .lines i:first-child{left:300px}.B3b .lines i:last-child{right:300px}
+.B3b .sm{position:absolute;top:540px;width:410px;padding:28px 30px;border-radius:14px;background:#fff;font-size:32px;line-height:1.45;font-family:"Gowun Dodum";min-height:200px}
+.B3b .s1{left:110px}.B3b .s2{right:110px}
+.B3b em,.B3b .wr em{display:block;font-style:normal;font-size:24px;letter-spacing:.1em;color:#9a4b2b;margin-bottom:10px}
+.B3b .wr{position:absolute;left:110px;right:110px;top:800px;padding:24px 30px;border:2px dashed #9a4b2b;border-radius:14px;font-size:30px;font-family:"Gowun Dodum";line-height:1.4}
+.B3b .lg{position:absolute;right:104px;left:auto;top:76px;bottom:auto;width:80px}
+/* G2 아이의 말: 따옴표가 큰 두 장의 쪽지 */
+.G2 .qs{position:absolute;left:90px;right:90px;top:330px;bottom:140px;display:flex;flex-direction:column;gap:34px;justify-content:center}
+.G2 .qq{position:relative;background:#fff;border-radius:14px;padding:40px 46px 36px 130px;border-left:8px solid #4a6c8c}
+.G2 .q2{background:#1b3a6b;color:#fff;border-left-color:#c99a3b}
+.G2 .qq i{position:absolute;left:34px;top:4px;font-family:"Gowun Batang";font-style:normal;font-size:150px;line-height:1;color:#4a6c8c;opacity:.6}
+.G2 .q2 i{color:#c99a3b}
+.G2 .qq small{display:block;font-size:24px;opacity:.8;margin-bottom:6px}
+.G2 .qq p{font-family:"Nanum Pen Script";line-height:1.3;position:static;padding:0;border-radius:0}
+/* A2 집에서: 메모지 세 장 */
+.A2{background:#efe9dc;font-family:"Gowun Dodum";color:#2a2622}
+.A2 .k{position:absolute;left:90px;top:90px;font-size:34px;font-family:"Nanum Pen Script";font-size:56px;color:#7a3b2e}
+.A2 .nt{position:absolute;left:110px;right:110px;height:150px;padding:0 40px;display:flex;align-items:center;gap:30px;box-shadow:0 8px 18px rgba(60,40,10,.15)}
+.A2 .nt b{flex:none;font-family:"Nanum Pen Script";font-size:56px;color:#7a3b2e;width:90px}
+.A2 .nt span{font-family:"Nanum Pen Script";font-size:52px;line-height:1.15}
+.A2 .n1{top:220px;background:#fff6c9;transform:rotate(-1.4deg)}
+.A2 .n2{top:410px;background:#e2f0e0;transform:rotate(1.1deg);left:140px;right:80px}
+.A2 .n3{top:600px;background:#fde3d8;transform:rotate(-.8deg)}
+.A2 .end{position:absolute;left:110px;right:110px;top:810px;font-family:"Nanum Pen Script";font-size:52px;color:#7a3b2e;text-align:center}
+.A2 .lg{position:absolute;right:70px;top:70px;width:96px;transform:rotate(8deg)}
+/* ===== 판 5 다변화: 글마다 색 테마 (th0 기본 = 남색·금색) ===== */
+/* th1 숲 */
+.th1.H,.th1.B{background:#eef2ea}.th1.G{background:#eef3ec}
+.th1.H .opt b,.th1.H2 .col b{background:#2f5d46;color:#fff}.th1.H2 .col b{background:none;color:#2f5d46}
+.th1.G .b2,.th1.G2 .q2{background:#2f5d46}.th1.F{background:#2f4a3a}.th1.F2 .strip,.th1.F2 .bar{background:#2f5d46}
+.th1.A2{background:#e7ece2}.th1 .k{color:#5b7a4a}
+/* th2 노을 */
+.th2.H,.th2.B{background:#f8ece4}.th2.G{background:#faf0ea}
+.th2.H .opt b{background:#7a3b2e}.th2.H2 .col b{color:#7a3b2e}.th2.H .vs,.th2.H2 .c2 b{color:#b5652f}.th2.H2 .vs2{background:#b5652f;box-shadow:0 0 0 10px #f8ece4}
+.th2.G .b2,.th2.G2 .q2{background:#6b3428}.th2.F{background:#5a2f28}.th2.F2 .strip,.th2.F2 .bar{background:#7a3b2e}
+.th2.A2{background:#f3e7de}.th2 .k{color:#a0603a}
+/* th3 밤바다 */
+.th3.H,.th3.B{background:#e9eef5}.th3.G{background:#e6edf5}
+.th3.H .opt b{background:#22355a}.th3.H2 .col b{color:#22355a}.th3.H2 .vs2{box-shadow:0 0 0 10px #e9eef5}
+.th3.G .b2,.th3.G2 .q2{background:#22355a}.th3.F{background:#1f2c40}.th3.F2 .strip,.th3.F2 .bar{background:#22355a}
+.th3.A2{background:#e4e9f0}.th3 .k{color:#4a6c8c}
+/* th4 올리브 */
+.th4.H,.th4.B{background:#f1f0e2}.th4.G{background:#f2f2e6}
+.th4.H .opt b{background:#55562c}.th4.H2 .col b{color:#55562c}.th4.H2 .vs2{box-shadow:0 0 0 10px #f1f0e2}
+.th4.G .b2,.th4.G2 .q2{background:#4b4c27}.th4.F{background:#43432a}.th4.F2 .strip,.th4.F2 .bar{background:#55562c}
+.th4.A2{background:#ecebdc}.th4 .k{color:#7a7a3a}
+.th1.H2 .vs2{box-shadow:0 0 0 10px #eef2ea}
+.H2 .col b{background:none!important}
