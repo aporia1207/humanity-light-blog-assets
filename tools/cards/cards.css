@@ -93,4 +93,32 @@
 .G .bb{position:static}
 .G .b1{margin-right:200px}.G .b2{margin-left:170px}
 .fit{white-space:nowrap}
-.F dl{white-space:normal!important}.F dt,.F dd{height:auto!important;line-height:1.5!important;padding:12px 0;border-bottom:1px solid #e3dccb}.F dd{font-size:30px}
+.F dl{white-space:normal!important}.F dt,.F dd{height:auto!important;line-height:1.5!important;padding:12px 0;border-bottom:1px solid #e3dccb}.F dd{font-size:30px}/* v4 공통 서명 줄 — 모든 카드 맨 아래 같은 자리(김종원 블로그의 카드 서명 방식) */
+.sig{position:absolute;left:0;right:0;bottom:34px;text-align:center;font-family:"Gowun Dodum";font-size:24px;letter-spacing:.06em;color:#7b6f60}
+.sig.w{color:rgba(255,255,255,.92);text-shadow:0 1px 6px rgba(0,0,0,.35)}
+/* v4 표지: 썸네일에서 읽히게 제목을 크게, 칩 줄 대신 띠 하나 */
+.C .glass{bottom:96px;padding:40px 52px 40px}
+.C .t{font-size:104px;line-height:1.12}
+.C .s{font-size:40px;margin-top:18px;font-family:"Gowun Batang";font-weight:700}
+.C .tag{font-size:28px;letter-spacing:.08em;padding:10px 20px;background:rgba(27,58,107,.82)}
+.B .q.fit2{font-size:104px;top:300px}
+.B .sub{font-size:44px;font-family:"Gowun Batang";font-weight:700;color:#9a4b2b;top:780px}
+.B .rule{top:740px}
+.B .lg{bottom:96px}.B .ft{bottom:100px}
+.E .ft{bottom:84px}.G .ft{bottom:84px}.G .lg{bottom:80px}.D .cap{top:700px}
+.A .lg{bottom:80px}
+/* H 갈림길 — 창비 ‘밸런스 게임’식 두 갈래 고르기 */
+.H{background:#f7f1e3;font-family:"Gowun Dodum";color:#1d2733}
+.H .k{position:absolute;left:90px;top:84px;font-size:28px;letter-spacing:.14em;color:#b07d2a}
+.H .t{position:absolute;left:90px;right:90px;top:136px;font-size:58px;font-family:"Gowun Batang";font-weight:700;line-height:1.32}
+.H .opt{position:absolute;left:90px;right:90px;height:190px;background:#fff;border-radius:26px;display:flex;align-items:center;gap:30px;padding:0 44px;box-shadow:0 6px 0 #e6dcc6}
+.H .opt b{flex:none;width:76px;height:76px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Hahmlet";font-size:40px;color:#fff;background:#1b3a6b}
+.H .o2 b{background:#c0472b}
+.H .opt span{font-family:"Nanum Pen Script";font-size:60px;line-height:1.15}
+.H .o1{top:390px}.H .o2{top:690px}
+.H .vs{position:absolute;left:0;right:0;top:590px;text-align:center;font-family:"Hahmlet";font-weight:700;font-size:80px;line-height:100px;color:#c0472b}
+.H .ft{position:absolute;left:90px;right:90px;bottom:90px;font-size:26px;color:#6b6457}
+.H .lg{position:absolute;right:84px;top:70px;width:88px}
+.C .glass{right:auto;max-width:968px}
+.H .t{right:200px}
+.A .q span.fit{flex:1;min-width:0;overflow:hidden}

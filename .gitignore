@@ -1,3 +1,5 @@
 tools/cards/node_modules/
 tools/cards/_tmp.html
 __pycache__/
+*_미리보기*
+_pv.html
