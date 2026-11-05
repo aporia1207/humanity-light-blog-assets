@@ -134,7 +134,7 @@ def cardA(d):
 <div class="ln pen q" style="top:560px"><span class="no">셋</span><span class="fit">{E(d.get('집에서.질문3', ''))}</span></div>
 <div class="ln pen q fit" style="top:720px;color:#b8572f">→ {E(d.get('집에서.맺음', ''))}</div><img class="lg" src="assets/logo.png">{sig()}</div>'''
 
-FIT = '''<script>document.fonts.ready.then(()=>{document.querySelectorAll('.fit,.fit2').forEach(e=>{let p=e.parentElement;let cs=getComputedStyle(e);let w=cs.display==='inline'?p.getBoundingClientRect().right-e.getBoundingClientRect().left:e.clientWidth;let fs=parseFloat(getComputedStyle(e).fontSize);while(e.scrollWidth>w+1&&fs>20){fs-=1;e.style.fontSize=fs+'px';}});
+FIT = '''<script>document.fonts.ready.then(()=>{document.querySelectorAll('.fit,.fit2').forEach(e=>{let p=e.parentElement;let cs=getComputedStyle(e);let w=cs.display==='inline'?p.getBoundingClientRect().right-e.getBoundingClientRect().left:e.clientWidth;let fs=parseFloat(getComputedStyle(e).fontSize);while(e.scrollWidth>w+1&&fs>20){fs-=1;e.style.fontSize=fs+'px';}if(e.classList.contains('fit2')){const lh=()=>parseFloat(getComputedStyle(e).lineHeight);while(e.getBoundingClientRect().height>lh()*2+4&&fs>20){fs-=2;e.style.fontSize=fs+'px';}}});
 document.querySelectorAll('.bb').forEach(e=>{let fs=58;const L=e.textContent.length;if(L>45)fs=48;if(L>70)fs=42;if(L>100)fs=36;e.style.fontSize=fs+'px'});document.body.dataset.ok=1});</script>'''
 
 def get_photo(src, workdir):
