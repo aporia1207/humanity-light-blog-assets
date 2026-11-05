@@ -122,3 +122,17 @@
 .C .glass{right:auto;max-width:968px}
 .H .t{right:200px}
 .A .q span.fit{flex:1;min-width:0;overflow:hidden}
+/* S 문장 카드 — ‘휴머니티를 두 번 읽다’ 같은 원장 노트 연재. 사진·손글씨 없이 문장 하나. */
+.S{background:#f4efe4;color:#22201c;font-family:"Gowun Batang"}
+.S .t{position:absolute;left:130px;right:130px;top:50%;transform:translateY(-56%);text-align:center;font-size:62px;font-weight:700;line-height:1.5;word-break:keep-all}
+.S .rule{position:absolute;left:50%;width:56px;margin-left:-28px;top:790px;border-top:2px solid #b07d2a}
+.S .no{position:absolute;left:0;right:0;top:120px;text-align:center;font-family:"Hahmlet";font-size:30px;color:#b07d2a;letter-spacing:.2em}
+.S .lg{position:absolute;right:70px;top:66px;width:70px;opacity:.85}
+.S0 .fr{position:absolute;inset:44px;border:2px solid #b07d2a}
+.S0 .fr::after{content:"";position:absolute;inset:10px;border:1px solid rgba(176,125,42,.5)}
+.S0 .lab{position:absolute;left:0;right:0;top:150px;text-align:center;font-family:"Gowun Dodum";font-size:30px;letter-spacing:.12em;color:#7b6f60}
+.S0 .t{font-size:90px;line-height:1.3;transform:translateY(-62%)}
+.S0 .rule{top:740px}
+.S0 .sub{position:absolute;left:120px;right:120px;top:780px;text-align:center;font-family:"Gowun Dodum";font-size:34px;color:#7b6f60}
+.S0 .lg{top:auto;bottom:96px;right:auto;left:50%;margin-left:-35px}
+.S0 .sig{bottom:60px}

@@ -42,7 +42,29 @@ MUST_IN_BODY = ['표지.한줄', '한장틀.큰질문', '한장틀.작은질문1
                 '갈림길.질문', '갈림길.가', '갈림길.나']
 SHORT_SKIP = ['아이말.질문', '아이말.대답1', '아이말.대답2', '근거1.결과', '근거2.결과', '원고지.예문']
 
+def check_sentence(meta, d, body):
+    """‘문장 글’(원장 노트 연재): 표지 + 본문 문장 카드 3장. 카드 문장은 본문에 글자 그대로 있어야 한다."""
+    problems = []
+    nb = norm(body)
+    for k in ('표지.제목', '문장1', '문장2', '문장3'):
+        if not d.get(k):
+            problems.append(f'{k}: 비어 있음')
+    for k in ('문장1', '문장2', '문장3'):
+        v = norm(d.get(k, ''))
+        if v and v not in nb:
+            problems.append(f'{k}: 본문에 같은 문장이 없음 → “{d[k]}”')
+        if len(v) > 60:
+            problems.append(f'{k}: 60자 이하로(카드 한 장에 네 줄 안) → “{d[k]}”')
+    got = set(re.findall(r'\[카드 (\d)\]', body))
+    if got != {'1', '2', '3', '4'}:
+        problems.append(f'본문의 [카드 n] 자리: {sorted(got)} → 문장 글은 1~4')
+    if not meta.get('머리 줄'):
+        problems.append('【머리 줄】: 비어 있음')
+    return problems
+
 def check(meta, d, body):
+    if meta.get('글 종류', '').startswith('문장'):
+        return check_sentence(meta, d, body)
     b = norm(body)
     kind_short = meta.get('글 종류', '').startswith('짧')
     problems = []
@@ -120,6 +142,15 @@ def cardG(d):
 <div class="wrap"><div class="bb b1"><small>그 학년다운 대답</small>“{q(d.get('아이말.대답1', ''))}”</div><div class="bb b2"><small>한 걸음 나아간 대답</small>“{q(d.get('아이말.대답2', ''))}”</div></div>
 <div class="ft">예로 들어 본 대답이에요</div><img class="lg" src="assets/logo_navy.png">{sig()}</div>'''
 
+def cardS0(d):
+    return f'''<div class="c S S0" id="k"><div class="fr"></div><div class="lab">{E(SIG["t"])}</div>
+<div class="t fit2" id="ttl">{E(d.get('표지.제목', ''))}</div><div class="rule"></div><div class="sub">{E(d.get('표지.한줄', ''))}</div>
+<img class="lg" src="assets/logo_brown.png">{sig()}</div>'''
+
+def cardS(d, k, n):
+    return f'''<div class="c S" id="k"><div class="no">{n}</div><div class="t">{E(d.get(k, ''))}</div><div class="rule"></div>
+<img class="lg" src="assets/logo_brown.png">{sig()}</div>'''
+
 def cardH(d):
     return f'''<div class="c H" id="k"><div class="k">갈림길 · 너라면?</div><div class="t">{E(d.get('갈림길.질문', ''))}</div>
 <div class="opt o1"><b>가</b><span>{E(d.get('갈림길.가', ''))}</span></div><div class="vs">VS</div><div class="opt o2"><b>나</b><span>{E(d.get('갈림길.나', ''))}</span></div>
@@ -171,16 +202,22 @@ def main():
         print(json.dumps(report, ensure_ascii=False, indent=1)); sys.exit(2 if problems else 0)
     kind = meta.get('카테고리', '')
     short = meta.get('글 종류', '').startswith('짧')
-    photo = get_photo(d.get('표지.사진', ''), folder)
-    cards = [('1_표지', cardC(d, photo) if photo else cardB1(d), bool(photo))]
-    if not short:
+    sentence = meta.get('글 종류', '').startswith('문장')
+    photo = None if sentence else get_photo(d.get('표지.사진', ''), folder)
+    cards = [('1_표지', cardS0(d) if sentence else cardC(d, photo) if photo else cardB1(d), bool(photo))]
+    if sentence:
+        cards += [(f'{i + 1}_문장', cardS(d, f'문장{i}', i), False) for i in (1, 2, 3)]
+    if sentence:
+        pass
+    elif not short:
         two = cardE(d) if '교육관' in kind else cardD(d) if '쓰기' in kind else cardF(d)
         cards.append(('2_' + ('근거' if '교육관' in kind else '원고지' if '쓰기' in kind else '책정보'), two, False))
-    cards.append(('6_갈림길', cardH(d), False))
-    cards.append(('3_한장틀', cardB3(d), False))
-    if not short:
-        cards.append(('4_아이의말', cardG(d), False))
-    cards.append(('5_집에서', cardA(d), False))
+    if not sentence:
+        cards.append(('6_갈림길', cardH(d), False))
+        cards.append(('3_한장틀', cardB3(d), False))
+        if not short:
+            cards.append(('4_아이의말', cardG(d), False))
+        cards.append(('5_집에서', cardA(d), False))
     head = open(os.path.join(D, 'head.html'), encoding='utf-8').read()
     css = open(os.path.join(D, 'cards.css'), encoding='utf-8').read()
     from playwright.sync_api import sync_playwright
@@ -208,7 +245,7 @@ def main():
             report['cards'].append(os.path.basename(dst))
         b.close()
     os.remove(os.path.join(D, '_tmp.html'))
-    report['cover'] = 'C(사진)' if photo else 'B(사진 없음·대체)'
+    report['cover'] = '문장 표지' if sentence else 'C(사진)' if photo else 'B(사진 없음·대체)'
     if '--preview' in args:
         pv = args[args.index('--preview') + 1]
         preview(meta, folder, report['cards'], pv)
