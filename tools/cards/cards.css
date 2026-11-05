@@ -1,0 +1,96 @@
+
+*{margin:0;padding:0;box-sizing:border-box}body{word-break:keep-all}
+.c{width:1080px;height:1080px;position:relative;overflow:hidden}
+.pen{font-family:"Nanum Pen Script"}
+/* A notebook v2 */
+.A{background:#fdfbf4;font-family:"Gowun Dodum"}
+.A .lines{position:absolute;inset:0;background:repeating-linear-gradient(180deg,transparent 0 78px,#c6d6e8 78px 80px)}
+.A .mg{position:absolute;top:0;bottom:0;left:150px;width:3px;background:#e7a0a0}
+.A .holes{position:absolute;left:44px;top:60px;bottom:60px;display:flex;flex-direction:column;justify-content:space-between}
+.A .holes i{width:38px;height:38px;border-radius:50%;background:#ebe5d6;box-shadow:inset 2px 3px 4px rgba(0,0,0,.18)}
+.A .tape{position:absolute;top:40px;right:110px;width:220px;height:58px;background:rgba(230,194,122,.55);transform:rotate(4deg)}
+.A .ln{position:absolute;left:190px;right:80px;height:80px;display:flex;align-items:flex-end;padding-bottom:6px;color:#22304b}
+.A .lab{font-size:50px;color:#b8572f}
+.A .big{font-size:80px}
+.A .q{font-size:54px;white-space:nowrap}
+.A .no{display:inline-block;width:110px;flex:none;font-size:58px;color:#b8572f}
+.A .mark{background:linear-gradient(transparent 58%,rgba(255,222,89,.8) 58%)}
+.A .lg{position:absolute;right:66px;bottom:58px;width:118px;transform:rotate(-9deg);opacity:.92}
+/* B quote v2 */
+.B{background:#f3eee5;font-family:"Gowun Batang";color:#29241f}
+.B .k{position:absolute;left:110px;top:110px;font-size:28px;letter-spacing:.22em;color:#9a7b4f}
+.B .q{position:absolute;left:110px;right:110px;top:260px;font-size:96px;line-height:1.32;font-weight:700}
+.B .rule{position:absolute;left:110px;top:720px;width:90px;height:2px;background:#29241f}
+.B .sub{position:absolute;left:110px;top:752px;font-size:34px;color:#4d463e}
+.B .lg{position:absolute;left:104px;bottom:86px;width:92px}
+.B .ft{position:absolute;left:214px;bottom:116px;font-size:26px;color:#6d655b}
+/* C photo v2 */
+.C{font-family:"Hahmlet";color:#fff;background:#222}
+.C .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.C .vg{position:absolute;inset:0;background:radial-gradient(120% 90% at 70% 30%,transparent 40%,rgba(20,14,8,.35) 100%)}
+.C .glass{position:absolute;left:56px;right:56px;bottom:56px;padding:46px 54px 44px;border-radius:28px;background:rgba(48,32,18,.42);backdrop-filter:blur(22px) saturate(1.1);-webkit-backdrop-filter:blur(22px);border:1px solid rgba(255,255,255,.35);box-shadow:0 20px 60px rgba(30,18,6,.25)}
+.C .chips{display:flex;gap:12px;margin-bottom:26px}
+.C .chip{font-family:"Gowun Dodum";font-size:24px;padding:8px 18px;border-radius:30px;background:rgba(255,255,255,.88);color:#3b2b1c}
+.C .chip.g{background:#c99a3b;color:#fff}
+.C .t{font-size:74px;line-height:1.22;font-weight:700;text-shadow:0 2px 14px rgba(40,20,0,.35)}
+.C .s{margin-top:20px;font-size:30px;color:#fff6e6;font-family:"Gowun Dodum";text-shadow:0 1px 8px rgba(40,20,0,.4)}
+.C .lg{position:absolute;right:52px;top:44px;width:104px;padding:8px;border-radius:50%;background:rgba(27,58,107,.85)}
+.C .gl{display:none}
+.C .tag{position:absolute;left:56px;top:70px;font-size:26px;letter-spacing:.16em;color:#fff;background:rgba(30,20,10,.42);padding:8px 16px;border-radius:24px;backdrop-filter:blur(8px)}
+/* D wongoji */
+.D{background:#f7f3ea;font-family:"Gowun Dodum";color:#2a2a2a}
+.D .k{position:absolute;left:90px;top:84px;font-size:28px;letter-spacing:.14em;color:#2f7a58}
+.D .t{position:absolute;left:90px;top:128px;font-size:62px;font-family:"Gowun Batang";font-weight:700;color:#1f3d33}
+.D .grid{position:absolute;left:90px;top:300px;display:grid;grid-template-columns:repeat(15,60px);grid-auto-rows:60px;border-left:2px solid #6aa889;border-top:2px solid #6aa889}
+.D .grid span{border-right:2px solid #6aa889;border-bottom:2px solid #6aa889;display:flex;align-items:center;justify-content:center;font-family:"Nanum Pen Script";font-size:50px;color:#23314d}
+.D .grid span.gap{border-bottom-width:12px;border-bottom-color:#f7f3ea;box-shadow:inset 0 -2px 0 #6aa889}
+.D .add span.w{color:#c0472b}
+.D .cap{position:absolute;left:90px;right:90px;top:720px;font-size:34px;line-height:1.6}
+.D .cap b{color:#c0472b}
+.D .lg{position:absolute;right:80px;top:76px;width:96px}
+.D .ft{position:absolute;left:90px;bottom:60px;font-size:24px;color:#6b6b6b}
+/* E research note */
+.E{background:#f6f2ea;font-family:"Gowun Dodum";color:#1d2733}
+.E .grid{position:absolute;inset:0;background-image:linear-gradient(#e4ddcf 1px,transparent 1px),linear-gradient(90deg,#e4ddcf 1px,transparent 1px);background-size:36px 36px;opacity:.7}
+.E .k{position:absolute;left:84px;top:80px;font-size:28px;letter-spacing:.14em;color:#8a6a35}
+.E .t{position:absolute;left:84px;top:124px;font-size:54px;font-family:"Hahmlet";font-weight:700;line-height:1.25}
+.E .box{position:absolute;left:84px;right:84px;background:#fff;border:2px solid #1d2733;padding:34px 40px}
+.E .box.a{top:330px}.E .box.b{top:660px;border-style:dashed;background:#fffdf7}
+.E .n{font-family:"Hahmlet";font-weight:700;font-size:96px;line-height:1;color:#1b3a6b}
+.E .b .n{color:#a5462b;font-size:76px}
+.E .who{font-size:26px;color:#6b6b6b;margin:8px 0 14px}
+.E .r{font-size:32px;line-height:1.5}
+.E .lab{position:absolute;right:40px;top:-18px;background:#1d2733;color:#fff;font-size:22px;padding:6px 14px}
+.E .b .lab{background:#a5462b}
+.E .ft{position:absolute;left:84px;bottom:52px;font-size:22px;color:#6b6b6b}
+.E .lg{position:absolute;right:84px;top:70px;width:90px}
+/* F catalog card */
+.F{background:#2c3b34;font-family:"Gowun Dodum"}
+.F .card{position:absolute;left:90px;right:90px;top:110px;bottom:110px;background:#fbf7ec;border-radius:6px;box-shadow:0 18px 40px rgba(0,0,0,.35);padding:70px 80px;color:#2a2622}
+.F .card:before{content:"";position:absolute;left:0;right:0;top:120px;height:3px;background:#c0472b}
+.F .card .rl{position:absolute;left:0;right:0;top:0;bottom:0;background:repeating-linear-gradient(transparent 0 60px,#d9e3ee 60px 62px);background-position:0 160px;opacity:.8;border-radius:6px}
+.F .hd{position:relative;display:flex;justify-content:space-between;font-size:26px;color:#7a6a52;letter-spacing:.1em}
+.F .tt{position:relative;margin-top:62px;font-family:"Gowun Batang";font-weight:700;font-size:64px}
+.F dl{position:relative;margin-top:36px;display:grid;grid-template-columns:230px 1fr;white-space:nowrap;row-gap:0;font-size:31px}
+.F dt{font-size:28px;color:#7a6a52;height:62px;line-height:62px}.F dd{height:62px;line-height:62px}
+.F .hole{position:absolute;left:50%;bottom:34px;width:44px;height:44px;margin-left:-22px;border-radius:50%;background:#2c3b34}
+.F .stamp{position:absolute;right:46px;bottom:40px;width:120px;transform:rotate(-12deg);opacity:.85}
+/* G voices */
+.G{background:#eef3f7;font-family:"Gowun Dodum";color:#1d2733}
+.G .k{position:absolute;left:90px;top:84px;font-size:28px;letter-spacing:.14em;color:#4a6c8c}
+.G .t{position:absolute;left:90px;right:90px;top:130px;font-size:52px;font-family:"Gowun Batang";font-weight:700;line-height:1.35}
+.G .bb{position:absolute;padding:34px 40px;border-radius:36px;font-size:44px;line-height:1.4;font-family:"Nanum Pen Script";font-size:58px}
+.G .bb small{display:block;font-family:"Gowun Dodum";font-size:24px;margin-bottom:6px;opacity:.8}
+.G .b1{left:90px;right:300px;top:390px;background:#fff;border-bottom-left-radius:6px}
+.G .b2{left:260px;right:90px;top:620px;background:#1b3a6b;color:#fff;border-bottom-right-radius:6px}
+.G .ft{position:absolute;left:90px;bottom:60px;font-size:24px;color:#5b6b7b}
+.G .lg{position:absolute;right:80px;bottom:44px;width:84px}
+
+.B .bl{position:absolute;left:110px;right:110px;top:470px;font-size:34px;line-height:1.65;color:#4d463e}
+.B .bl b{color:#9a4b2b;font-weight:700;display:inline-block;min-width:150px}
+.B .bl p{margin-bottom:10px}
+.G .wrap{position:absolute;left:90px;right:90px;top:330px;bottom:130px;display:flex;flex-direction:column;justify-content:center;gap:40px}
+.G .bb{position:static}
+.G .b1{margin-right:200px}.G .b2{margin-left:170px}
+.fit{white-space:nowrap}
+.F dl{white-space:normal!important}.F dt,.F dd{height:auto!important;line-height:1.5!important;padding:12px 0;border-bottom:1px solid #e3dccb}.F dd{font-size:30px}
